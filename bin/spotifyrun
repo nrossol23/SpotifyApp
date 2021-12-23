@@ -1,0 +1,17 @@
+#!/bin/bash
+# spotifyrun
+
+# Stop on errors:
+set -Eeuo pipefail
+
+# Call spotifydb create if the database file does not exist already:
+if [ ! -f var/spotifyapp.sqlite3 ]; then
+    bash bin/spotifydb create
+fi
+
+# Set the environment variables:
+export FLASK_ENV=development
+export FLASK_APP=spotifyapp
+
+# Run the dev server on port 8000:
+flask run --host 0.0.0.0 --port 8000
