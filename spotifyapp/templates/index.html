@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>SpotifyApp</title>
+</head>
+
+<body>
+    
+    <div class="row align-items-center page-header">
+        <div class="col d-flex justify-content-center">
+            <a href="{{url_for('show_index')}}" class="btn btn-link">Connect Your Account</a>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <h1>SpotifyApp</h1>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Menu
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Spotify Stats</a>
+                  <a class="dropdown-item" href="#">Find Similar Artists</a>
+                  <a class="dropdown-item" href="#">Find Similar Music</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="row align-items-center welcome-text">
+                <h5 class="card-title">Welcome to SpotifyApp!</h5>
+                <p class="card-text">
+                    Click the link at the top left of the page to connect your Spotify account and gain access to detailed statistics and recommendations related to your listening activity.
+                    This app's back-end was created using Python and Flask. The front end was created using Bootstrap 4.0 and a small amount of JavaScript.
+                </p>
+            </div>
+            <div class="row align-items-center welcome-text-link">
+                <a href="{{url_for('show_index')}}" class="btn btn-link">Click to learn about the author.</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
