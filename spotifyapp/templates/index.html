@@ -10,7 +10,11 @@
     
     <div class="row align-items-center page-header">
         <div class="col d-flex justify-content-center">
-            <a href="{{url_for('show_index')}}" class="btn btn-link">Connect Your Account</a>
+            {% if authorized %}
+                <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link">Connect Your Account</a>
+            {% else %}
+                <h5>Spotify account already connected.</h5>
+            {% endif %}
         </div>
         <div class="col d-flex justify-content-center">
             <h1>SpotifyApp</h1>
@@ -39,7 +43,7 @@
                 </p>
             </div>
             <div class="row align-items-center welcome-text-link">
-                <a href="{{url_for('show_index')}}" class="btn btn-link">Click to learn about the author.</a>
+                <a href="https://www.linkedin.com/in/nathan-rossol-131092143/" class="btn btn-link">Click to learn about the author.</a>
             </div>
         </div>
     </div>
