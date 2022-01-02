@@ -7,3 +7,4 @@ app.config.from_object('spotifyapp.config')
 
 import spotifyapp.views
 import spotifyapp.model
+import spotifyapp.api

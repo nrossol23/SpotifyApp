@@ -1,5 +1,5 @@
 """
-SpotifyApp Spotify API Controller.
+Spotify API authorization endpoints.
 """
 import flask
 import spotifyapp

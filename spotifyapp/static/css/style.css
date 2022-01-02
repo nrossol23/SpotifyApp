@@ -23,3 +23,14 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+.disguised-link {
+    text-decoration: none;
+}
+
+.disabled-link {
+    color: currentColor;
+    cursor: not-allowed;
+    text-decoration: none;
+    pointer-events: none;
+}
