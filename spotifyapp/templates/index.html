@@ -21,7 +21,7 @@
     
     <div class="row align-items-center page-header">
         <div class="col d-flex justify-content-center">
-            {% if authorized %}
+            {% if authorized == False%}
                 <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Connect Your Account</h5></a>
             {% else %}
                 <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link disabled-link"><h5>Account already connected.</h5></a>
@@ -36,7 +36,7 @@
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Menu
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownMenu">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="{{url_for('show_stats')}}">Spotify Stats</a>
                   <a class="dropdown-item" href="{{url_for('show_similar_artists')}}">Find Similar Artists</a>
                   <a class="dropdown-item" href="{{url_for('show_similar_music')}}">Find Similar Music</a>
@@ -51,7 +51,8 @@
                 <h5 class="card-title">Welcome to SpotifyApp!</h5>
                 <p class="card-text">
                     Click the link at the top left of the page to connect your Spotify account and gain access to detailed statistics and recommendations related to your listening activity.
-                    This app's back-end was created using Python and Flask. The front end was created using Bootstrap 4.0 and a small amount of JavaScript.
+                    This app's back-end was created using Python and Flask. The front end was created using Bootstrap 4.0 and a small amount of JavaScript. This app does not use any database. 
+                    Instead, the extremely small amount of user-specific data needed is stored inside a cookie.
                 </p>
                 <p class="card-text">
                     The purpose of this project was to gain a deeper understanding of utilizing third-party APIs. In this app's case, we make use of Spotify's public Web API.
@@ -67,7 +68,7 @@
     <script>
         $(document).ready(function(){
             $("#dropdownMenuButton").click(function(){
-                $("#dropdownMenu").dropdown();
+                $(".dropdown-toggle").dropdown();
             });
         });
     </script>

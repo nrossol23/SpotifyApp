@@ -3,21 +3,24 @@ SpotifyApp index (main) view.
 """
 import flask
 import spotifyapp
+import datetime
 
 @spotifyapp.app.route('/')
 def show_index():
 
-    authorized = True
+    # Determine if the user is authorized:
     if 'header' not in flask.session:
-        authorized = False
+        context = {
+            "authorized": False,
+        }
+        return flask.render_template("index.html", **context)
 
-    # Connect to database:
-    connection = spotifyapp.model.get_db()
-
-    # gather necessary info:
-    # TO DO
+    # Perform access token check if user is authorized:
+    if (datetime.datetime.now(datetime.timezone.utc) - flask.session["time_authorized"]).total_seconds() >= 3540:
+        return flask.redirect("/authorize/")
 
     context = {
-        "authorized": authorized,
+        "authorized": True,
     }
+
     return flask.render_template("index.html", **context)
