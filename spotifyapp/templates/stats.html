@@ -23,6 +23,8 @@
         <div class="col d-flex justify-content-center">
             {% if authorized == False%}
                 <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Connect Your Account</h5></a>
+            {% elif authorized == True and expired == True %}
+                <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Connect Your Account (Your token has expired.)</h5></a>
             {% else %}
                 <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link disabled-link"><h5>Account already connected.</h5></a>
             {% endif %}
@@ -49,9 +51,38 @@
         <div class="card-body">
             <div class="row align-items-center welcome-text">
                 <h5 class="card-title">Your Spotify Statistics:</h5>
-                <p class="card-text">
-                    test
-                </p>
+                {% if authorized == False or expired == True %}
+                    <p class="card-text">
+                        You have not authorized your spotify account. Please click the link at the top left of the page to do this.
+                    </p>
+                {% elif status_code != 200 %}
+                    <p class="card-text">
+                        {{error}}
+                    </p>
+                    {% if status_code != 429 %}
+                        <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Click to re-authenticate.</h5></a>
+                    {% endif %}
+                {% else %}
+                    <div class="row align-items-center">
+                        <div class="col-6">
+                            <p class="card-text">
+                                Display Name: {{user_data.display_name}}
+                            </p>
+                            <p class="card-text">
+                                Followers: {{user_data.followers.total}}
+                            </p>
+                            <p class="card-text">
+                                Email: {{user_data.email}}
+                            </p>
+                            <p class="card-text">
+                                <a href="{{user_data.external_urls.spotify}}">View account on Spotify.</a>
+                            </p>
+                        </div>
+                        <div class="col-6 justify-content-center">
+                            <img src="{{user_data.images[0].url}}", alt="Profile Image">
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
