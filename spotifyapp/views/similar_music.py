@@ -24,5 +24,6 @@ def show_similar_music():
     # Perform access token check if user is authorized:
     if (datetime.datetime.now(datetime.timezone.utc) - flask.session["time_authorized"]).total_seconds() >= 3540:
         context["expired"] = True
+        return flask.render_template("similar_music.html", **context)
         
     return flask.render_template("similar_music.html", **context)
