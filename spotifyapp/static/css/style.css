@@ -7,6 +7,11 @@
     width: 50%;
     margin-left: 25%;
     margin-right: 25%;
+    margin-bottom: 1.5rem;
+}
+
+.card-bottom {
+    margin-bottom: 3.5rem;
 }
 
 .card-body {
