@@ -51,14 +51,30 @@
         <div class="card-body">
             <div class="row align-items-center welcome-text">
                 <h5 class="card-title">Here are some artists you might like:</h5>
-                <p class="card-title">(We use your top 10 artists to gather other similar artists.)</p>
+                <p class="card-title">(We use your top artists to gather other similar artists.)</p>
                 {% if authorized == False or expired == True %}
                     <p class="card-text">
                         You have not authorized your spotify account. Please click the link at the top left of the page to do this.
                     </p>
+                {% elif status_code != 200 %}
+                    <p class="card-text">
+                        {{error}}
+                    </p>
+                    {% if status_code != 429 %}
+                        <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Click to re-authenticate.</h5></a>
+                    {% endif %}
                 {% else %}
                     <p class="card-text">
-                        test
+                        {% for artist in artists %}
+                            <div class="row align-items-center vertical-spacing">
+                                <div class="col align-items-center">
+                                    <a href="{{artist.uri}}"><p class="card-text">{{artist.name}}</p></a>
+                                </div>
+                                <div class="col align-items-center">
+                                    <p class="card-text"> {{artist.followers.total}} followers </p>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </p>
                 {% endif %}
             </div>

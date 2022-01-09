@@ -104,11 +104,13 @@
                         <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Click to re-authenticate.</h5></a>
                     {% endif %}
                 {% else %}
-                    {% for item in track_info %}
-                        <div class="row align-items-center">
-                            <p class="card-text">{{item.name}} - {{item.artists[0].name}}</p>
-                        </div>
-                    {% endfor %}
+                    <p class="card-text">
+                        {% for item in track_info %}
+                            <div class="row align-items-center">
+                                <p class="card-text">{{item.name}} - {{item.artists[0].name}}</p>
+                            </div>
+                        {% endfor %}
+                    </p>
                 {% endif %}
             </div>
         </div>
@@ -131,11 +133,13 @@
                         <a href="{{url_for('connect_to_spotify')}}" class="btn btn-link"><h5>Click to re-authenticate.</h5></a>
                     {% endif %}
                 {% else %}
-                    {% for item in artist_info %}
-                        <div class="row align-items-center">
-                            <p class="card-text">{{item.name}}</p>
-                        </div>
-                    {% endfor %}
+                    <p class="card-text">
+                        {% for item in artist_info %}
+                            <div class="row align-items-center">
+                                <p class="card-text">{{item.name}}</p>
+                            </div>
+                        {% endfor %}
+                    </p>
                 {% endif %}
             </div>
         </div>

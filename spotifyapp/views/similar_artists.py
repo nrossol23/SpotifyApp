@@ -29,12 +29,14 @@ def show_similar_artists():
         
     # Get the related artists for this user:
     get_related_artists(context)
+
+    print(context["artists"])
     
     return flask.render_template("similar_artists.html", **context)
 
 
 def get_related_artists(context):
-    # First, we want to gather the user's top 10 artists:
+    # First, we want to gather the user's top artists:
     top_artists = requests.get("https://api.spotify.com/v1/me/top/artists?limit=3", headers=flask.session["header"])
 
     code = spotifyapp.model.check_status_code(context, "", top_artists)
@@ -56,6 +58,9 @@ def get_related_artists(context):
 
         if code == 200:
             related_subset = related_subset.json()["artists"]
-            related_artists.append(related_subset)
+            for artist in related_subset:
+                related_artists.append(artist)
         else:
             return # Stop if error present.
+
+    context["artists"] = related_artists

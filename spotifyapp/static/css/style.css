@@ -39,3 +39,7 @@
     text-decoration: none;
     pointer-events: none;
 }
+
+.vertical-spacing {
+    margin-bottom: 0.5rem;
+}
