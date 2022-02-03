@@ -4,11 +4,6 @@
 # Stop on errors:
 set -Eeuo pipefail
 
-# Call spotifydb create if the database file does not exist already:
-if [ ! -f var/spotifyapp.sqlite3 ]; then
-    bash bin/spotifydb create
-fi
-
 # Set the environment variables:
 export FLASK_ENV=development
 export FLASK_APP=spotifyapp

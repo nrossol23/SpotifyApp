@@ -13,6 +13,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'Flask',
+	'requests',
     ],
     python_requires='>=3.8',
 )
