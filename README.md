@@ -1,7 +1,8 @@
 # SpotifyApp
 
-This web app was created using Python and Flask that utilizes Spotify's offical web API. The app allows users to easily connect and authenticate their own Spotify account
-and gain access to in depth statistics and recommendations based on their own listening activity. Author: Nathan Rossol.
+Created using Python and Flask and utilizes Spotify's official web API. The app allows users to easily connect and authenticate their own Spotify account and gain access to in depth statistics and recommendations based on their own listening activity.
+
+Author: Nathan Rossol
 
 In order to run this web app locally:
   1. Clone this repo.
