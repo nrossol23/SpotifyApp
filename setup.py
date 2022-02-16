@@ -1,5 +1,5 @@
 """
-Spotify python package configuration.
+SpotifyApp python package configuration.
 
 Nathan Rossol <nrossol@umich.edu>
 """
