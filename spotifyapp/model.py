@@ -1,5 +1,4 @@
-"""SpotifyApp model (database) API."""
-import sqlite3
+"""SpotifyApp model."""
 import flask
 import spotifyapp
 import requests
