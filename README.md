@@ -4,6 +4,12 @@ Created using Python and Flask and utilizes Spotify's official web API. The app 
 
 Author: Nathan Rossol
 
+This app requires a client id and client secret key to run. Here is how to set this up:
+  1. Create a spotify developer account here: https://developer.spotify.com/dashboard/
+  2. Create a new app
+  3. Click on the new app and paste the client ID into all lines showing "<CLIENT ID HERE>" in authorization.py.
+  4. Paste the client secret into all lines showing "<CLIENT SECRET HERE>" in authorization.py.
+
 In order to run this web app locally:
   1. Clone this repo.
   2. If on MacOS, install python using:

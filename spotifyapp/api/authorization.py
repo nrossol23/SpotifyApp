@@ -13,7 +13,7 @@ def connect_to_spotify():
 
     # Make initial authorization request to authorize our app with the spotify account.
     query_params = {
-        "client_id": "b23c8c7be9f04bda9183dd13c8a89464",
+        "client_id": "<CLIENT ID HERE>",
         "response_type": "code",
         "redirect_uri": "http://localhost:8000/get_token/",
         "scope": "user-library-read user-top-read user-read-email",
@@ -45,8 +45,8 @@ def get_access_token():
         "grant_type": "authorization_code",
         "code": spotify_response_code,
         "redirect_uri": "http://localhost:8000/get_token/",
-        "client_id": "b23c8c7be9f04bda9183dd13c8a89464",
-        "client_secret": "d6f30a312ad745ab8c2250cc764f01ae"
+        "client_id": "<CLIENT ID HERE>",
+        "client_secret": "<CLIENT SECRET HERE>"
     }
 
     # Make get request to obtain user's access token.
